@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Ergo_RandomWinner
 {
     public class Logic
     {
+        #region Methods
+
         public static int GetNumberOfWinners()
         {
             Console.WriteLine("How many winners?");
@@ -77,18 +77,18 @@ namespace Ergo_RandomWinner
             return SelectedNumbers;
         }
 
+        #endregion
+
+        #region SubClasses
         public class Validator
         {
-            public static bool ValidateNumberOfWinners(int NumberOfWinners, int AllContendersCount)
+            #region Methods
+
+            public static bool ValidateFilePath(string Path)
             {
-                if (NumberOfWinners <= 0)
+                if (string.IsNullOrWhiteSpace(Path))
                 {
-                    Console.WriteLine("Invalid number of winners");
-                    return false;
-                }
-                else if (AllContendersCount <= NumberOfWinners)
-                {
-                    Console.WriteLine($"Number Of winners must be less than Number of All contenders ({AllContendersCount})\n\n");
+                    Console.WriteLine("File Path is Invalid.\n\n\n");
                     return false;
                 }
                 return true;
@@ -104,6 +104,21 @@ namespace Ergo_RandomWinner
                 return true;
             }
 
+            public static bool ValidateNumberOfWinners(int NumberOfWinners, int AllContendersCount)
+            {
+                if (NumberOfWinners <= 0)
+                {
+                    Console.WriteLine("Invalid number of winners");
+                    return false;
+                }
+                else if (AllContendersCount <= NumberOfWinners)
+                {
+                    Console.WriteLine($"Number Of winners must be less than Number of All contenders ({AllContendersCount})\n\n");
+                    return false;
+                }
+                return true;
+            }
+
             public static bool ValidateWinnerList(List<string> WinnerList)
             {
                 if (WinnerList.Count == 0)
@@ -114,25 +129,21 @@ namespace Ergo_RandomWinner
                 return true;
             }
 
-            public static bool ValidateFilePath(string Path)
-            {
-                if (string.IsNullOrWhiteSpace(Path))
-                {
-                    Console.WriteLine("File Path is Invalid.\n\n\n");
-                    return false;
-                }
-                return true;
-            }
+            #endregion
         }
 
         public class Announcement
         {
+            #region Methods
+
             public static void AnnounceWinners(List<string> WinnerList)
             {
                 Console.WriteLine("\n\nWinners: \n");
                 Console.WriteLine(String.Join("\n", WinnerList));
-                Console.ReadLine();
             }
+
+            #endregion
         }
+        #endregion
     }
 }
