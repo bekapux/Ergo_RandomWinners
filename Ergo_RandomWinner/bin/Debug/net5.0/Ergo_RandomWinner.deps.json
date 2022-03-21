@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Ergo_RandomWinner/1.0.0": {
+        "runtime": {
+          "Ergo_RandomWinner.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Ergo_RandomWinner/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
